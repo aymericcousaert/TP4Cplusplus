@@ -1,5 +1,5 @@
-#if ! defined ( LIGNE_H )
-#define LIGNE_H
+#if ! defined ( INFOS_H )
+#define INFOS_H
 #include <string>
 using namespace std;
 
@@ -11,12 +11,12 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Ligne>
+// Rôle de la classe <Infos>
 //
 //
 //------------------------------------------------------------------------
 
-class Ligne
+class Infos : public Ligne
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -27,34 +27,23 @@ public:
     //
     // Contrat :
     //
-    static string decompose(char sep, string uneLigne);
-    void afficher();
-    string getCible();
-    string getReferer();
-
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Ligne & operator = ( const Ligne & unLigne );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
 
 //-------------------------------------------- Constructeurs - destructeur
-    Ligne ( const Ligne & unLigne );
+    Infos ( const Infos & unInfos );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Ligne (string uneLigne);
+    Infos (string uneInfos);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Ligne ( );
+    virtual ~Infos ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -67,25 +56,9 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
-    string ip;
-    string logName;
-    string authenticatedUser;
-    int jour;
-    string mois;
-    int annee;
-    int heure;
-    int minute;
-    int seconde;
-    string decalage;
-    string action;
-    string cible;
-    int status;
-    string donnees;
-    string referer;
-    string navigateur;
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Ligne>
+//-------------------------------- Autres définitions dépendantes de <Infos>
 
-#endif // LIGNE_H
+#endif // Infos_H

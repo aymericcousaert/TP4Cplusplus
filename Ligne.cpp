@@ -28,17 +28,36 @@ string Ligne::decompose(char sep, string uneLigne)
     return retour;
 }
 
+string Ligne::getCible()
+{
+    return cible;
+}
+string Ligne::getReferer()
+{
+    return referer;
+}
+
 void Ligne::afficher()
 {
-    cout << "Le referer est " << referer << " et l'heure est " << heure << endl;
+    cout << " " << ip;
+    cout << " " << logName;
+    cout << " " << authenticatedUser;
+    cout << " " << jour;
+    cout << " " << mois;
+    cout << " " << annee;
+    cout << " " << heure;
+    cout << " " << minute;
+    cout << " " << seconde;
+    cout << " " << decalage;
+    cout << " " << action;
+    cout << " " << cible;
+    cout << " " << status;
+    cout << " " << donnees;
+    cout << " " << referer;
+    cout << " " << navigateur << endl;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
-Ligne & Ligne::operator = ( const Ligne & unLigne )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -65,39 +84,40 @@ Ligne::Ligne (string uneLigne)
     uneLigne = uneLigne.replace(0, logName.size() + 1, "");
     authenticatedUser = decompose(' ', uneLigne);
     uneLigne = uneLigne.replace(0, authenticatedUser.size() + 2, "");
-    jour = decompose('/', uneLigne);
-    uneLigne = uneLigne.replace(0, jour.size() + 1, "");
-    jour = stoi(jour);
+    string unJour = decompose('/', uneLigne);
+    uneLigne = uneLigne.replace(0, unJour.size() + 1, "");
+    jour = stoi(unJour);
     mois = decompose('/', uneLigne);
     uneLigne = uneLigne.replace(0, mois.size() + 1, "");
-    annee = decompose('/', uneLigne);
-    uneLigne = uneLigne.replace(0, annee.size() + 2, "");
-    annee = stoi(annee);
-    heure = decompose(':', uneLigne);
-    uneLigne = uneLigne.replace(0, heure.size() + 1, "");
-    heure = stoi(heure);
-    minute = decompose(':', uneLigne);
-    uneLigne = uneLigne.replace(0, minute.size() + 1, "");
-    minute = stoi(minute);
-    seconde = decompose(' ', uneLigne);
-    uneLigne = uneLigne.replace(0, seconde.size() + 1, "");
-    seconde = stoi(seconde);
+    string unAnnee = decompose(':', uneLigne);
+    uneLigne = uneLigne.replace(0, unAnnee.size() + 1, "");
+    annee = stoi(unAnnee);
+    string uneHeure = decompose(':', uneLigne);
+    uneLigne = uneLigne.replace(0, uneHeure.size() + 1, "");
+    heure = stoi(uneHeure);
+    string uneMinute = decompose(':', uneLigne);
+    uneLigne = uneLigne.replace(0, uneMinute.size() + 1, "");
+    minute = stoi(uneMinute);
+    string uneSeconde = decompose(' ', uneLigne);
+    uneLigne = uneLigne.replace(0, uneSeconde.size() + 1, "");
+    seconde = stoi(uneSeconde);
     decalage = decompose(']', uneLigne);
     uneLigne = uneLigne.replace(0, decalage.size() + 3, "");
     action = decompose(' ', uneLigne);
     uneLigne = uneLigne.replace(0, action.size() + 1, "");
     cible = decompose('"', uneLigne);
     uneLigne = uneLigne.replace(0, cible.size() + 2, "");
-    status = decompose(' ', uneLigne);
-    uneLigne = uneLigne.replace(0, status.size() + 1, "");
-    status = stoi(status);
+    string unStatus = decompose(' ', uneLigne);
+    uneLigne = uneLigne.replace(0, unStatus.size() + 1, "");
+    status = stoi(unStatus);
     donnees = decompose(' ', uneLigne);
     uneLigne = uneLigne.replace(0, donnees.size() + 2, "");
-    donnees = stoi(donnees);
     referer = decompose('"', uneLigne);
     uneLigne = uneLigne.replace(0, referer.size() + 3, "");
     navigateur = decompose('"', uneLigne);
     uneLigne = uneLigne.replace(0, navigateur.size() + 1, "");
+
+
 
 } //----- Fin de Ligne
 

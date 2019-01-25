@@ -20,3 +20,4 @@ Test: $(BINAIRE) test.o
 
 clean:
 	@rm -rf *.o run test
+
