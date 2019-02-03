@@ -26,6 +26,27 @@ informations remplissage(Ligne& uneLigne)
     return infos;
 }
 
+string obtenirExtension(string uneCible)
+// retourne le string "" s'il n'y a pas d'extention
+{
+    int i = 0;
+    string retour = "";
+    while (uneCible[i] != '\0')
+    {
+        if (uneCible[i] == '.')
+        {
+            i++;
+            while (uneCible[i] != ' ')
+            {
+                retour += uneCible[i];
+                i++;
+            }
+        }
+        i++;
+    }
+    return retour;
+}
+
 void AfficherTop10()
 {
     int min = 2147483647;

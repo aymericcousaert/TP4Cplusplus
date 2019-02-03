@@ -116,9 +116,6 @@ Ligne::Ligne (string uneLigne)
     uneLigne = uneLigne.replace(0, referer.size() + 3, "");
     navigateur = decompose('"', uneLigne);
     uneLigne = uneLigne.replace(0, navigateur.size() + 1, "");
-    
-    
-    
 } //----- Fin de Ligne
 
 
