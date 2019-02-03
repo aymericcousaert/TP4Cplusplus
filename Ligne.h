@@ -18,10 +18,10 @@ using namespace std;
 
 class Ligne
 {
-//----------------------------------------------------------------- PUBLIC
-
+    //----------------------------------------------------------------- PUBLIC
+    
 public:
-//----------------------------------------------------- Méthodes publiques
+    //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
     //
@@ -31,42 +31,42 @@ public:
     void afficher();
     string getCible();
     string getReferer();
-
-
-//------------------------------------------------- Surcharge d'opérateurs
+    
+    
+    //------------------------------------------------- Surcharge d'opérateurs
     Ligne & operator = ( const Ligne & unLigne );
     // Mode d'emploi :
     //
     // Contrat :
     //
-
-
-//-------------------------------------------- Constructeurs - destructeur
+    
+    
+    //-------------------------------------------- Constructeurs - destructeur
     Ligne ( const Ligne & unLigne );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
-
+    
     Ligne (string uneLigne);
     // Mode d'emploi :
     //
     // Contrat :
     //
-
+    
     virtual ~Ligne ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
-
-//------------------------------------------------------------------ PRIVE
-
+    
+    //------------------------------------------------------------------ PRIVE
+    
 protected:
-//----------------------------------------------------- Méthodes protégées
-
-//----------------------------------------------------- Attributs protégés
-
+    //----------------------------------------------------- Méthodes protégées
+    
+    //----------------------------------------------------- Attributs protégés
+    
     string ip;
     string logName;
     string authenticatedUser;
@@ -83,7 +83,7 @@ protected:
     string donnees;
     string referer;
     string navigateur;
-
+    
 };
 
 //-------------------------------- Autres définitions dépendantes de <Ligne>
