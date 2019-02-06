@@ -13,6 +13,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -28,7 +29,19 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+void Graphe::genererDot()
+{
+    ofstream fichier("in.dot", ios::out);
 
+    if(fichier)
+    {
+        
+        fichier << "digraph {" << endl;
+        fichier.close();
+    }
+    else
+        cerr << "Erreur à l'ouverture !" << endl;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 

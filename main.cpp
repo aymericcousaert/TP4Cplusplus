@@ -7,6 +7,7 @@ using namespace std;
 
 #include "Ligne.h"
 #include "Classement.h"
+#include "Graphe.h"
 
 map<string, informations> mapCibles;
 
@@ -89,6 +90,8 @@ int main(int argc, char* argv[])
                     }
             }
         }
+        Graphe unGraphe;
+        unGraphe.genererDot();
         Classement CiblesLesPlusVisitees = Classement();
         CiblesLesPlusVisitees.afficher();
         fichier.close();

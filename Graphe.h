@@ -34,7 +34,7 @@ public:
     //
     // Contrat :
     //
-    
+    void genererDot();
     
     //------------------------------------------------- Surcharge d'opérateurs
     
