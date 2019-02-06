@@ -6,14 +6,7 @@
 using namespace std;
 
 #include "Ligne.h"
-
-
-typedef
-struct informations
-{
-    int nbApparition;
-    map<string, int> mapReferers;
-} informations;
+#include "Classement.h"
 
 map<string, informations> mapCibles;
 
@@ -22,102 +15,51 @@ informations remplissage(Ligne& uneLigne)
     informations infos;
     infos.nbApparition = 1;
     infos.mapReferers.insert(pair<string,int>(uneLigne.getReferer(), 1));
-    
     return infos;
 }
 
-string obtenirExtension(string uneCible)
-// retourne le string "" s'il n'y a pas d'extention
+void inserer(Ligne& l)
 {
-    int i = 0;
-    string retour = "";
-    while (uneCible[i] != '\0')
+    if (mapCibles.find(l.getCible()) == mapCibles.end())
     {
-        if (uneCible[i] == '.')
-        {
-            i++;
-            while (uneCible[i] != ' ')
-            {
-                retour += uneCible[i];
-                i++;
-            }
-        }
-        i++;
+        informations infos = remplissage(l);
+        mapCibles.insert(pair<string,informations>(l.getCible(), infos));
     }
-    return retour;
-}
-
-void AfficherTop10()
-{
-    int min = 2147483647;
-    int indMin = 0;
-    string top[10];
-    int i = 0;
-    for (map<string, informations>::iterator it = mapCibles.begin(); it != mapCibles.end(); ++it)
+    else if (mapCibles[l.getCible()].mapReferers.find(l.getReferer()) == mapCibles[l.getCible()].mapReferers.end())
     {
-        if (i < 9)
-            top[i] = it->first;
-        else if (i == 9)
-        {
-            top[i] = it->first;
-            // On calcule le min
-            for (int m = 0; m < 10; m++)
-            {
-                if (mapCibles[top[m]].nbApparition < min)
-                {
-                    min = mapCibles[top[m]].nbApparition;
-                    indMin = m;
-                }
-            }
-        }
-        else
-        {
-            // On remplace le min il y a besoin
-            if (it->second.nbApparition > min)
-            {
-                top[indMin] = it->first;
-                // On recalcule le min
-                for (int m = 0; m < 10; m++)
-                    if (mapCibles[top[m]].nbApparition <= min)
-                        // Le <= est important pour changer succesivement toutes les cibles aux apparitions minimales
-                    {
-                        min = mapCibles[top[m]].nbApparition;
-                        indMin = m;
-                    }
-            }
-        }
-        i++;
+        mapCibles[l.getCible()].mapReferers.insert(pair<string,int>(l.getReferer(),1));
+        mapCibles[l.getCible()].nbApparition++;
     }
-    // On trie le top obtenu
-    string topTrie[10];
-    // Tableau qui permet de selectionner à quelles cibles on a encore accès (on va les éliminer au fur et à mesure que le Top 10 se remplit)
-    int acces[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    int max = 0;
-    for (int j = 0; j < 10; j++)
+    else
     {
-        max = 0;
-        int id = 0;
-        for (int k = 0; k < 10; k++)
-        {
-            if (acces[k] == 1 && mapCibles[top[k]].nbApparition > max)
-            {
-                max = mapCibles[top[k]].nbApparition;
-                id = k;
-            }
-        }
-        acces[id] = 0;
-        topTrie[j] = top[id];
-    }
-    cout << "Voici un Top 10 :" << endl;
-    for (int i = 0; i < 10; i++)
-    {
-        cout << i + 1 << ". " << topTrie[i] << " avec " << mapCibles[topTrie[i]].nbApparition << " accès" << endl;
+        mapCibles[l.getCible()].mapReferers[l.getReferer()]++;
+        mapCibles[l.getCible()].nbApparition++;
     }
 }
 
 int main(int argc, char* argv[])
 {
-    
+    int heure = 0;
+    int option = 0;
+    for (int i = 0; i < argc; i++)
+    {
+        if (strcmp(argv[i], "-e") == 0)
+            option = 1;
+        if (strcmp(argv[i], "-t") == 0)
+        {
+            option = 2;
+            heure = atoi(argv[i + 1]);
+        }
+        if (strcmp(argv[i], "-e") == 0 && option == 2)
+        {
+            option = 3;
+        }
+        if (strcmp(argv[i], "-t") == 0 && option == 1)
+        {
+            option = 3;
+            heure = atoi(argv[i + 1]);
+        }
+    }
     string ligne;
     ifstream fichier("Test.log", ios::in);
     if (fichier)
@@ -125,25 +67,31 @@ int main(int argc, char* argv[])
         while (getline(fichier, ligne))
         {
             Ligne l1 = Ligne(ligne);
-            // l1.afficher();
-            if (mapCibles.find(l1.getCible()) == mapCibles.end())
+            switch (option)
             {
-                informations infos = remplissage(l1);
-                mapCibles.insert(pair<string,informations>(l1.getCible(), infos));
-            }
-            else if (mapCibles[l1.getCible()].mapReferers.find(l1.getReferer()) == mapCibles[l1.getCible()].mapReferers.end())
-            {
-            mapCibles[l1.getCible()].mapReferers.insert(pair<string,int>(l1.getReferer(),1));
-                mapCibles[l1.getCible()].nbApparition++;
-            }
-            else
-            {
-                mapCibles[l1.getCible()].mapReferers[l1.getReferer()]++;
-                mapCibles[l1.getCible()].nbApparition++;
+                case 0:
+                    inserer(l1);
+                
+                case 1:
+                    if (!l1.ExtensionEstImageouJs())
+                    {
+                        inserer(l1);
+                    }
+                case 2:
+                    if (l1.getHeure() >= heure && l1.getHeure() < heure + 1)
+                    {
+                        inserer(l1);
+                    }
+                case 3:
+                    if (l1.getHeure() >= heure && l1.getHeure() < heure + 1 && !l1.ExtensionEstImageouJs())
+                    {
+                        inserer(l1);
+                    }
             }
         }
+        Classement CiblesLesPlusVisitees = Classement();
+        CiblesLesPlusVisitees.afficher();
         fichier.close();
-        AfficherTop10();
     }
     else cout << "Fichier inexistant" << endl;
     

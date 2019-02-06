@@ -1,7 +1,7 @@
 ECHO=@echo
 COMP=g++
 CPPFLAGS=-g -DMAP -Wall -ansi -pedantic -std=c++11
-INT= Ligne.h 
+INT= Ligne.h Classement.h
 REAL=$(INT:.h=.cpp)
 BINAIRE=$(INT:.h=.o)
 EXE=run

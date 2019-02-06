@@ -1,5 +1,5 @@
 /*************************************************************************
- Ligne  -  description
+ Classement  -  description
  -------------------
  début                : $Janvier 2019$
  copyright            : $Aymeric Cousaert, Mael Risbourg$
@@ -7,26 +7,32 @@
                          mael.risbourg@insa-lyon.fr$
  *************************************************************************/
 
-//---------- Interface de la classe <Ligne> (fichier Ligne.h) ------------
-#if ! defined (LIGNE_H)
-#define LIGNE_H
-#include <string>
-using namespace std;
-
+//---------- Interface de la classe <Classement> (fichier Classement.h) --
+#if ! defined (CLASSEMENT_H)
+#define CLASSEMENT_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <set>
 
 //------------------------------------------------------------- Constantes
-const string EXTENSIONS[8] {".jpg", ".png", ".gif", ".jpeg", ".bmp", ".tif", ".ico", ".js"};
+
 //------------------------------------------------------------------ Types
+typedef
+struct informations
+{
+    int nbApparition;
+    map<string, int> mapReferers;
+} informations;
+
+extern map<string, informations> mapCibles;
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Ligne>
-//
+// Rôle de la classe <Classement>
+// Cette classe constitue le classement des cibles les plus visitées
 //
 //------------------------------------------------------------------------
 
-class Ligne
+class Classement 
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -37,22 +43,10 @@ public:
     //
     // Contrat :
     //
-    static string decompose(char sep, string uneLigne);
-    
     void afficher();
     
-    string getCible();
-    
-    string getReferer();
-    
-    int getHeure();
-    
-    bool ExtensionEstImageouJs();
-    
-    string getExtension();
-    
     //------------------------------------------------- Surcharge d'opérateurs
-    Ligne & operator=(const Ligne & unLigne);
+    Classement & operator=(const Classement & unClassement);
     // Mode d'emploi :
     //
     // Contrat :
@@ -60,19 +54,19 @@ public:
     
     
     //-------------------------------------------- Constructeurs - destructeur
-    Ligne(const Ligne & unLigne);
+    Classement(const Classement & unClassement);
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
     
-    Ligne(string uneLigne);
+    Classement();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~Ligne();
+    virtual ~Classement();
     // Mode d'emploi :
     //
     // Contrat :
@@ -84,27 +78,10 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    
-    string ip;
-    string logName;
-    string authenticatedUser;
-    int jour;
-    string mois;
-    int annee;
-    int heure;
-    int minute;
-    int seconde;
-    string decalage;
-    string action;
-    string cible;
-    string extension;
-    int status;
-    string donnees;
-    string referer;
-    string navigateur;
-    
+    string top[10];
 };
 
-//-------------------------------- Autres définitions dépendantes de <Ligne>
+//-------------------------------- Autres définitions dépendantes de <Classement>
 
-#endif // LIGNE_H
+#endif // CLASSEMENT_H
+

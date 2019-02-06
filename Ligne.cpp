@@ -1,3 +1,17 @@
+/*************************************************************************
+ Ligne  -  description
+ -------------------
+ début                : $Janvier 2019$
+ copyright            : $Aymeric Cousaert, Mael Risbourg$
+ e-mail               : $aymeric.cousaert@insa-lyon.fr,
+                         mael.risbourg@insa-lyon.fr$
+ *************************************************************************/
+
+//---------- Réalisation de la classe <Ligne> (fichier Ligne.cpp) --------
+
+//---------------------------------------------------------------- INCLUDE
+
+//-------------------------------------------------------- Include système
 #include <iostream>
 using namespace std;
 
@@ -10,7 +24,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Ligne::Méthode ( liste des paramètres )
+// type Ligne::Méthode(liste des paramètres)
 // Algorithme :
 //
 //{
@@ -37,6 +51,11 @@ string Ligne::getReferer()
     return referer;
 }
 
+int Ligne::getHeure()
+{
+    return heure;
+}
+
 void Ligne::afficher()
 {
     cout << " " << ip;
@@ -57,11 +76,27 @@ void Ligne::afficher()
     cout << " " << navigateur << endl;
 }
 
+bool Ligne::ExtensionEstImageouJs()
+{
+    for (int i = 0; i < 8; i++)
+    {
+        if (extension == EXTENSIONS[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+string Ligne::getExtension()
+{
+    return extension;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
-
 //-------------------------------------------- Constructeurs - destructeur
-Ligne::Ligne ( const Ligne & unLigne )
+Ligne::Ligne(const Ligne & unLigne)
 // Algorithme :
 //
 {
@@ -71,7 +106,7 @@ Ligne::Ligne ( const Ligne & unLigne )
 } //----- Fin de Ligne (constructeur de copie)
 
 
-Ligne::Ligne (string uneLigne)
+Ligne::Ligne(string uneLigne)
 // Algorithme :
 //
 {
@@ -116,10 +151,16 @@ Ligne::Ligne (string uneLigne)
     uneLigne = uneLigne.replace(0, referer.size() + 3, "");
     navigateur = decompose('"', uneLigne);
     uneLigne = uneLigne.replace(0, navigateur.size() + 1, "");
+
+    string tmp = cible;
+    string poubelle = decompose('.',tmp);
+    tmp = tmp.replace(0, poubelle.size(), "");
+    extension = decompose(' ',tmp);
+   
 } //----- Fin de Ligne
 
 
-Ligne::~Ligne ( )
+Ligne::~Ligne()
 // Algorithme :
 //
 {
