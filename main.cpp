@@ -42,61 +42,53 @@ int main(int argc, char* argv[])
 {
     int heure = 0;
     string fichierDot = "";
-    int option = 0;
+    bool optionG = false;
+    bool optionE = false;
+    bool optionT = false;
     for (int i = 0; i < argc; i++)
     {
-        if (strcmp(argv[i], "-e") == 0)
-            option = 1;
-        if (strcmp(argv[i], "-t") == 0)
+        if (strcmp(argv[i],"-g") == 0)
         {
-            option = 2;
-            heure = atoi(argv[i + 1]);
-        }
-        if (strcmp(argv[i], "-e") == 0 && option == 2)
-        {
-            option = 3;
-        }
-        if (strcmp(argv[i], "-t") == 0 && option == 1)
-        {
-            option = 3;
-            heure = atoi(argv[i + 1]);
-        }
-        if (strcmp(argv[i], "-g") == 0)
-        {
-            option = 4;
+            optionG = true;
             fichierDot = argv[i + 1];
         }
+        else if (strcmp(argv[i],"-e") == 0)
+        {
+            optionE = true;
+        }
+        else if (strcmp(argv[i],"-t") == 0)
+        {
+            optionT = true;
+            heure = atoi(argv[i + 1]);
+        }
     }
-    string ligne;
+    string ligneFichier;
     ifstream fichier("Test.log", ios::in);
     if (fichier)
     {
-        while (getline(fichier, ligne))
+        while (getline(fichier, ligneFichier))
         {
-            Ligne l1 = Ligne(ligne);
-            switch (option)
+            Ligne ligne = Ligne(ligneFichier);
+            if (!optionE && !optionT)
             {
-                case 1: // Option -e
-                    if (!l1.ExtensionEstImageouJs())
-                    {
-                        inserer(l1);
-                    }
-                case 2: // Option -t
-                    if (l1.getHeure() >= heure && l1.getHeure() < heure + 1)
-                    {
-                        inserer(l1);
-                    }
-                case 3: // Option -e et -t
-                    if (l1.getHeure() >= heure && l1.getHeure() < heure + 1 && !l1.ExtensionEstImageouJs())
-                    {
-                        inserer(l1);
-                    }
-                default: // Sans option ou option -g
-                    inserer(l1);
+                inserer(ligne);
             }
+            else if (!ligne.ExtensionEstImageouJs() && optionE && !optionT)
+            {
+                inserer(ligne);
+            }
+            else if (ligne.getHeure() >= heure && ligne.getHeure() < heure + 1 && optionT && !optionE)
+            {
+                inserer(ligne);
+            }
+            else if (!ligne.ExtensionEstImageouJs() && ligne.getHeure() >= heure && ligne.getHeure() < heure + 1 && optionE && optionT)
+            {
+                inserer(ligne);
+            }
+            else {}
         }
         fichier.close();
-        if (option == 4)
+        if (optionG)
         {
             ofstream fichier(fichierDot, ios::out);
             if (fichier)
