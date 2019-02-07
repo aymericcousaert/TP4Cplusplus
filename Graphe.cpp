@@ -37,16 +37,23 @@ ostream& operator<<(ostream & flux, Graphe & unGraphe)
 //
 {
     flux << "digraph {" << endl;
+    // Affichage des noeuds
+    set<string> dejaAffiches;
     for (map<string, informations>::iterator it = mapCibles.begin(); it != mapCibles.end(); ++it)
     {
         flux << unGraphe.tabNoeud[it->first] << " [label=\"" << it->first << "\"];" << endl;
+        dejaAffiches.insert(it->first);
         for (map<string, int>::iterator itbis = it->second.mapReferers.begin(); itbis != it->second.mapReferers.end(); ++itbis)
         {
-            flux << unGraphe.tabNoeud[itbis->first] << " [label=\"" << itbis->first << "\"];" << endl;
-            flux << unGraphe.tabNoeud[it->first] << " -> " << unGraphe.tabNoeud[itbis->first]<< " [label=\"" << itbis->second << "\"];" << endl;
+            if (dejaAffiches.find(itbis->first) == dejaAffiches.end())
+            {
+                flux << unGraphe.tabNoeud[itbis->first] << " [label=\"" << itbis->first << "\"];" << endl;
+                dejaAffiches.insert(itbis->first);
+            }
         }
         
     }
+    // Affichage des arcs
     for (map<string, informations>::iterator it = mapCibles.begin(); it != mapCibles.end(); ++it)
     {
         for (map<string, int>::iterator itbis = it->second.mapReferers.begin(); itbis != it->second.mapReferers.end(); ++itbis)
@@ -55,6 +62,7 @@ ostream& operator<<(ostream & flux, Graphe & unGraphe)
         }
         
     }
+  
     flux << "}" << endl;
 
     return flux;
