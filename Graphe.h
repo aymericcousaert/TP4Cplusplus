@@ -12,7 +12,7 @@
 #define GRAPHE_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "Classement.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -23,7 +23,7 @@
 //
 //------------------------------------------------------------------------
 
-class Graphe
+class Graphe 
 {
     //----------------------------------------------------------------- PUBLIC
     
@@ -34,10 +34,9 @@ public:
     //
     // Contrat :
     //
-    void genererDot();
     
     //------------------------------------------------- Surcharge d'opérateurs
-    
+    friend ostream & operator<<(ostream & flux, Graphe & unGraphe);
     
     //-------------------------------------------- Constructeurs - destructeur
     Graphe(const Graphe & unGraphe);
@@ -64,7 +63,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    
+    map<string,string> tabNoeud;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Graphe>

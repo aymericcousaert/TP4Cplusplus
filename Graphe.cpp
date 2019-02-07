@@ -14,6 +14,7 @@
 //-------------------------------------------------------- Include système
 #include <iostream>
 #include <fstream>
+#include <map>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -29,22 +30,35 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-void Graphe::genererDot()
-{
-    ofstream fichier("in.dot", ios::out);
-
-    if(fichier)
-    {
-        
-        fichier << "digraph {" << endl;
-        fichier.close();
-    }
-    else
-        cerr << "Erreur à l'ouverture !" << endl;
-}
 
 //------------------------------------------------- Surcharge d'opérateurs
+ostream& operator<<(ostream & flux, Graphe & unGraphe)
+// Algorithme :
+//
+{
+    flux << "digraph {" << endl;
+    for (map<string, informations>::iterator it = mapCibles.begin(); it != mapCibles.end(); ++it)
+    {
+        flux << unGraphe.tabNoeud[it->first] << " [label=\"" << it->first << "\"];" << endl;
+        for (map<string, int>::iterator itbis = it->second.mapReferers.begin(); itbis != it->second.mapReferers.end(); ++itbis)
+        {
+            flux << unGraphe.tabNoeud[itbis->first] << " [label=\"" << itbis->first << "\"];" << endl;
+            flux << unGraphe.tabNoeud[it->first] << " -> " << unGraphe.tabNoeud[itbis->first]<< " [label=\"" << itbis->second << "\"];" << endl;
+        }
+        
+    }
+    for (map<string, informations>::iterator it = mapCibles.begin(); it != mapCibles.end(); ++it)
+    {
+        for (map<string, int>::iterator itbis = it->second.mapReferers.begin(); itbis != it->second.mapReferers.end(); ++itbis)
+        {
+            flux << unGraphe.tabNoeud[it->first] << " -> " << unGraphe.tabNoeud[itbis->first]<< " [label=\"" << itbis->second << "\"];" << endl;
+        }
+        
+    }
+    flux << "}" << endl;
 
+    return flux;
+} //----- Fin de operator =
 
 //-------------------------------------------- Constructeurs - destructeur
 Graphe::Graphe(const Graphe & unGraphe)
@@ -64,6 +78,24 @@ Graphe::Graphe()
 #ifdef MAP
     cout << "Appel au constructeur de <Graphe>" << endl;
 #endif
+    int i = 0;
+    for (map<string, informations>::iterator it = mapCibles.begin(); it != mapCibles.end(); ++it)
+    {
+        string noeud = "Node";
+        noeud += to_string(i);
+        tabNoeud.insert(pair<string,string>(it->first, noeud));
+        for (map<string, int>::iterator itbis = it->second.mapReferers.begin(); itbis != it->second.mapReferers.end(); ++itbis)
+        {
+            if (tabNoeud.find(itbis->first) == tabNoeud.end())
+            {
+                i++;
+                noeud = "Node";
+                noeud += to_string(i);
+                tabNoeud.insert(pair<string,string>(itbis->first, noeud));
+            }
+        }
+        i++;
+    }
 } //----- Fin de Graphe
 
 

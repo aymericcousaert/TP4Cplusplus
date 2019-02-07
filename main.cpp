@@ -41,6 +41,7 @@ void inserer(Ligne& l)
 int main(int argc, char* argv[])
 {
     int heure = 0;
+    string fichierDot = "";
     int option = 0;
     for (int i = 0; i < argc; i++)
     {
@@ -60,6 +61,11 @@ int main(int argc, char* argv[])
             option = 3;
             heure = atoi(argv[i + 1]);
         }
+        if (strcmp(argv[i], "-g") == 0)
+        {
+            option = 4;
+            fichierDot = argv[i + 1];
+        }
     }
     string ligne;
     ifstream fichier("Test.log", ios::in);
@@ -70,31 +76,40 @@ int main(int argc, char* argv[])
             Ligne l1 = Ligne(ligne);
             switch (option)
             {
-                case 0:
-                    inserer(l1);
-                
-                case 1:
+                case 1: // Option -e
                     if (!l1.ExtensionEstImageouJs())
                     {
                         inserer(l1);
                     }
-                case 2:
+                case 2: // Option -t
                     if (l1.getHeure() >= heure && l1.getHeure() < heure + 1)
                     {
                         inserer(l1);
                     }
-                case 3:
+                case 3: // Option -e et -t
                     if (l1.getHeure() >= heure && l1.getHeure() < heure + 1 && !l1.ExtensionEstImageouJs())
                     {
                         inserer(l1);
                     }
+                default: // Sans option ou option -g
+                    inserer(l1);
             }
         }
-        Graphe unGraphe;
-        unGraphe.genererDot();
+        fichier.close();
+        if (option == 4)
+        {
+            ofstream fichier(fichierDot, ios::out);
+            if (fichier)
+            {
+                Graphe unGraphe;
+                fichier << unGraphe << endl;
+            }
+            else
+                cerr << "Le fichier fourni n'a pas le bon format";
+        }
         Classement CiblesLesPlusVisitees = Classement();
         CiblesLesPlusVisitees.afficher();
-        fichier.close();
+        
     }
     else cout << "Fichier inexistant" << endl;
     
