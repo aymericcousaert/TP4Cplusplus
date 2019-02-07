@@ -42,15 +42,23 @@ int main(int argc, char* argv[])
 {
     int heure = 0;
     string fichierDot = "";
+    string fichierLog = "";
     bool optionG = false;
     bool optionE = false;
     bool optionT = false;
-    for (int i = 0; i < argc; i++)
+    int i = 1;
+    while (i < argc)
     {
         if (strcmp(argv[i],"-g") == 0)
         {
             optionG = true;
+            if (i == argc - 1)
+            {
+                cerr << "[Erreur 5] Le nom du fichier associé à l'option g n'a pas été spécifié." << endl;
+                return 0;
+            }
             fichierDot = argv[i + 1];
+            i++;
         }
         else if (strcmp(argv[i],"-e") == 0)
         {
@@ -59,11 +67,41 @@ int main(int argc, char* argv[])
         else if (strcmp(argv[i],"-t") == 0)
         {
             optionT = true;
+            if (i == argc - 1)
+            {
+                cerr << "[Erreur 4] L'heure n'a pas été spécifiée." << endl;
+                return 0;
+            }
             heure = atoi(argv[i + 1]);
+            if (heure < 0 || heure > 23)
+            {
+                cerr << "[Erreur 3] L'heure spécifiée doit être comprise entre 0 et 23 inclus." << endl;
+                return 0;
+            }
+            if ((strcmp(argv[i + 1], "0") != 0 && heure == 0))
+            {
+                cerr << "[Erreur 4] L'heure n'a pas été spécifiée." << endl;
+                return 0;
+            }
+            i++;
         }
+        else if (i == argc - 1)
+        {
+             fichierLog = argv[i];
+        }
+        else
+        {
+            cerr << "[Erreur 7] Une option spécifiée au moins n'existe pas." << endl;
+            return 0;
+        }
+        i++;
     }
     string ligneFichier;
-    ifstream fichier("Test.log", ios::in);
+    if (fichierLog == argv[0])
+    {
+        cerr << "[Erreur 6] Le nom du fichier journal n'a pas été spécifié." << endl;
+    }
+    ifstream fichier(fichierLog, ios::in);
     if (fichier)
     {
         while (getline(fichier, ligneFichier))
@@ -88,45 +126,32 @@ int main(int argc, char* argv[])
             else {}
         }
         fichier.close();
-        if (optionG)
-        {
-            ofstream fichier(fichierDot, ios::out);
-            if (fichier)
-            {
-                Graphe unGraphe;
-                fichier << unGraphe << endl;
-            }
-            else
-                cerr << "Le fichier fourni n'a pas le bon format";
-        }
-        Classement CiblesLesPlusVisitees = Classement();
-        CiblesLesPlusVisitees.afficher();
-        
     }
-    else cout << "Fichier inexistant" << endl;
-    
+    else
+    {
+        cerr << "[Erreur 1] Le fichier à analyser n'a pas pu être ouvert." << endl;
+        return 0;
+    }
+    if (optionG)
+    {
+        if (fichierDot == "")
+        {
+            cerr << "[Erreur 5] Le nom du fichier associé à l'option g n'a pas été spécifié." << endl;
+            return 0;
+        }
+        ofstream fichier(fichierDot, ios::out);
+        if (fichier)
+        {
+            Graphe unGraphe;
+            fichier << unGraphe << endl;
+        }
+        else
+        {
+             cerr << "[Erreur 2] Le fichier dot fourni n'a pas pu être ouvert." << endl;
+            return 0;
+        }
+    }
+    Classement CiblesLesPlusVisitees = Classement();
+    CiblesLesPlusVisitees.afficher();
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

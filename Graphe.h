@@ -69,5 +69,3 @@ protected:
 //-------------------------------- Autres définitions dépendantes de <Graphe>
 
 #endif // GRAPHE_H
-
-

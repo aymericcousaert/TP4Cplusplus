@@ -84,4 +84,3 @@ protected:
 //-------------------------------- Autres définitions dépendantes de <Classement>
 
 #endif // CLASSEMENT_H
-
