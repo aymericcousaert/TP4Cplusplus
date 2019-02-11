@@ -33,10 +33,23 @@ using namespace std;
 void Classement::afficher()
 {
      cout << "Voici un Top 10 :" << endl;
-     for (int i = 0; i < 10; i++)
-     {
-         cout << i + 1 << ". " << top[i] << " avec " << mapCibles[top[i]].nbApparition << " accès" << endl;
+     if (mapCibles[top[0]].nbApparition !=0){
+         for (int i = 0; i < 10; i++)
+         {
+             if(mapCibles[top[i]].nbApparition !=0){
+                cout << i + 1 << ". " << top[i] << " avec " << mapCibles[top[i]].nbApparition << " accès" << endl;
+             }
+             else{
+                 cout<< "Il n'y a pas plus de sites" <<endl;
+                 break;
+             }
+         }
+
      }
+     else {
+         cout<<"Il n'y a aucun résultats correspondant aux critères."<<endl;
+     }
+
 }
 
 
@@ -79,7 +92,8 @@ Classement::Classement()
         {
                 topNonTrie[i] = it->first;
             // On calcule le min
-            for (int m = 0; m < 10; m++)
+
+            for (int m = 1; m < 10; m++)
             {
                 if (mapCibles[topNonTrie[m]].nbApparition < min)
                 {
@@ -90,11 +104,14 @@ Classement::Classement()
         }
         else
         {
-            // On remplace le min il y a besoin
+            // On remplace le min s'il y a besoin
+
             if (it->second.nbApparition > min)
             {
                     topNonTrie[indMin] = it->first;
                 // On recalcule le min
+                min = mapCibles[topNonTrie[0]].nbApparition;
+                indMin = 0;
                 for (int m = 0; m < 10; m++)
                 {
                     if (mapCibles[topNonTrie[m]].nbApparition <= min)
@@ -108,11 +125,23 @@ Classement::Classement()
         }
         i++;
     }
+    //Avant de trier on regarde la taille du tableau au cas où il y est e, réalité moins de 10 éléments
+    int taille = 0;
+
+    while( (taille <10)&&(mapCibles[topNonTrie[taille]].nbApparition !=0) )
+    {
+        taille ++;
+    }
+
+
     // On trie le topNonTrie obtenu
     // Tableau qui permet de selectionner à quelles cibles on a encore accès (on va les éliminer au fur et à mesure que le Top 10 se remplit)
     int acces[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     int max = 0;
-    for (int j = 0; j < 10; j++)
+
+
+
+    for (int j = 0; j < taille; j++)
     {
         max = 0;
         int id = 0;

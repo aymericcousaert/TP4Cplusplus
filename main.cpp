@@ -3,6 +3,8 @@
 #include <fstream>
 #include <list>
 #include <map>
+#include <cstring>
+
 using namespace std;
 
 #include "Ligne.h"

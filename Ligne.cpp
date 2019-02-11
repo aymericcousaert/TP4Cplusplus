@@ -80,7 +80,7 @@ bool Ligne::ExtensionEstImageouJs()
 {
     for (int i = 0; i < 8; i++)
     {
-        if (extension == EXTENSIONS[i])
+        if (extension.find(EXTENSIONS[i]) != string::npos) //contains(extension,EXTENSIONS[i]
         {
             return true;
         }
@@ -109,6 +109,7 @@ Ligne::Ligne(const Ligne & unLigne)
 Ligne::Ligne(string uneLigne)
 // Algorithme :
 //
+
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Ligne>" << endl;
@@ -155,7 +156,8 @@ Ligne::Ligne(string uneLigne)
     string tmp = cible;
     string poubelle = decompose('.',tmp);
     tmp = tmp.replace(0, poubelle.size(), "");
-    extension = decompose(' ',tmp);
+    //cout<<tmp<<endl;
+    //extension = decompose(' ',tmp);
    
 } //----- Fin de Ligne
 
