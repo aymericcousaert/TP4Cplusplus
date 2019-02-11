@@ -32,24 +32,26 @@ using namespace std;
 
 void Classement::afficher()
 {
-     cout << "Voici un Top 10 :" << endl;
-     if (mapCibles[top[0]].nbApparition !=0){
+     if (mapCibles[top[0]].nbApparition != 0)
+     {
+         cout << "Voici la liste des documents les plus consultés :" << endl;
          for (int i = 0; i < 10; i++)
          {
-             if(mapCibles[top[i]].nbApparition !=0){
+             if (mapCibles[top[i]].nbApparition != 0)
+             {
                 cout << i + 1 << ". " << top[i] << " avec " << mapCibles[top[i]].nbApparition << " accès" << endl;
              }
-             else{
-                 cout<< "Il n'y a pas plus de sites" <<endl;
+             else
+             {
+                 cout << "Il n'y a pas de documents supplémentaires pour cette liste." <<endl;
                  break;
              }
          }
-
      }
-     else {
-         cout<<"Il n'y a aucun résultats correspondant aux critères."<<endl;
+     else
+     {
+         cout << "Impossible de fournir un Top 10 car aucun résultat ne correspond aux critères." << endl;
      }
-
 }
 
 
@@ -125,22 +127,16 @@ Classement::Classement()
         }
         i++;
     }
-    //Avant de trier on regarde la taille du tableau au cas où il y est e, réalité moins de 10 éléments
+    // Avant de trier on regarde la taille du tableau au cas où il y est en réalité moins de 10 éléments
     int taille = 0;
-
-    while( (taille <10)&&(mapCibles[topNonTrie[taille]].nbApparition !=0) )
+    while((taille <10) && (mapCibles[topNonTrie[taille]].nbApparition != 0))
     {
         taille ++;
     }
-
-
     // On trie le topNonTrie obtenu
     // Tableau qui permet de selectionner à quelles cibles on a encore accès (on va les éliminer au fur et à mesure que le Top 10 se remplit)
     int acces[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     int max = 0;
-
-
-
     for (int j = 0; j < taille; j++)
     {
         max = 0;

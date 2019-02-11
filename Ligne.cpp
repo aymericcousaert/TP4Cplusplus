@@ -80,7 +80,7 @@ bool Ligne::ExtensionEstImageouJs()
 {
     for (int i = 0; i < 8; i++)
     {
-        if (extension.find(EXTENSIONS[i]) != string::npos) //contains(extension,EXTENSIONS[i]
+        if (extension.find(EXTENSIONS[i]) != string::npos) // contains(extension,EXTENSIONS[i])
         {
             return true;
         }
@@ -149,6 +149,12 @@ Ligne::Ligne(string uneLigne)
     donnees = decompose(' ', uneLigne);
     uneLigne = uneLigne.replace(0, donnees.size() + 2, "");
     referer = decompose('"', uneLigne);
+    
+    if (referer.size() > 31 && referer.substr(0, 31) == "http://intranet-if.insa-lyon.fr")
+    {
+        referer = referer.replace(7, 25, "");
+    }
+    
     uneLigne = uneLigne.replace(0, referer.size() + 3, "");
     navigateur = decompose('"', uneLigne);
     uneLigne = uneLigne.replace(0, navigateur.size() + 1, "");
@@ -156,9 +162,6 @@ Ligne::Ligne(string uneLigne)
     string tmp = cible;
     string poubelle = decompose('.',tmp);
     tmp = tmp.replace(0, poubelle.size(), "");
-    //cout<<tmp<<endl;
-    //extension = decompose(' ',tmp);
-   
 } //----- Fin de Ligne
 
 

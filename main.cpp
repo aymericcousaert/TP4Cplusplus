@@ -21,6 +21,22 @@ informations remplissage(Ligne& uneLigne)
     return infos;
 }
 
+string getExtension(string unString)
+{
+    int i = 0;
+    char a = unString[0];
+    while (a != '\0' || a != '.')
+    {
+        if (a == '.')
+        {
+            return unString.substr(i, unString.size());
+        }
+        i++;
+        a = unString[i];
+    }
+    return "";
+}
+
 void inserer(Ligne& l)
 {
     if (mapCibles.find(l.getCible()) == mapCibles.end())
@@ -139,6 +155,11 @@ int main(int argc, char* argv[])
         if (fichierDot == "")
         {
             cerr << "[Erreur 5] Le nom du fichier associé à l'option g n'a pas été spécifié." << endl;
+            return 0;
+        }
+        if (getExtension(fichierDot) != ".dot")
+        {
+            cerr << "[Erreur 8] Le nom du fichier associé à l'option g n'a pas été spécifié ou n'a pas la bonne extension." << endl;
             return 0;
         }
         ofstream fichier(fichierDot, ios::out);

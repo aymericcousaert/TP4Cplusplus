@@ -58,7 +58,7 @@ ostream& operator<<(ostream & flux, Graphe & unGraphe)
     {
         for (map<string, int>::iterator itbis = it->second.mapReferers.begin(); itbis != it->second.mapReferers.end(); ++itbis)
         {
-            flux << unGraphe.tabNoeud[it->first] << " -> " << unGraphe.tabNoeud[itbis->first]<< " [label=\"" << itbis->second << "\"];" << endl;
+            flux << unGraphe.tabNoeud[itbis->first] << " -> " << unGraphe.tabNoeud[it->first] << " [label=\"" << itbis->second << "\"];" << endl;
         }
         
     }
