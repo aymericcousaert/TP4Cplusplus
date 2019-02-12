@@ -1,0 +1,35 @@
+\documentclass{article}
+
+
+
+\usepackage[latin1]{inputenc}    
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}     
+\usepackage{listings}
+\usepackage[margin=2.5cm]{geometry}
+
+\date{}
+\title{Analyse de logs apache - Document de Conception}
+\author{Aymeric Cousaert et Mael Risbourg}
+
+\begin{document}
+\maketitle
+
+\vspace{1cm}
+\tableofcontents
+\vspace{1cm}
+
+\begin{section}{Spécifications de l'application}
+
+\end{section}
+
+
+\begin{section}{Architecture globale de l'application}
+Nous avons utilisés 3 classes : Ligne, Classement, et Graphe. La classe Ligne possède tous les attributs d'une ligne d'un journal de logs. La classe Classement possède un seul attribut qui est un tableau des 10 cibles les plus demandées. La classe Graphe possède également un seul attribut qui est une map dont le premier élément est un document accessible et le second et le nom donné au noeud qui lui est associé dans le graphe.
+\end{section}
+
+
+\begin{section}{Structures de données commentées et justifiées}
+
+\end{section}
+\end{document}
