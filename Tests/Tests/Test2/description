@@ -1,0 +1,3 @@
+Le même test que le Test numéro 1 en rajoutant l'option -g.
+Nous ne donnerons pas le fichier .outfile dès maintenant, le but est juste de s'assurer l'execution du programme et la génération du top 10 avec cette option
+Nous attendons donc le meme resultat qu'au test 1
