@@ -1,1 +1,5 @@
-Test mal formé, sans fichier run
+Dans la même intention que le test 3, nous allons tester si il n'y a aucun résultat car le fichier de base est vide.
+Notre programme est censé nous renvoyé qu'il n'y a aucun résultat
+
+
+Nous ferons plus tard un test au cas où il n'y a aucun résultat malgré un fichier .log fournis mais pour cela nous devons d'abord tester nos options.
