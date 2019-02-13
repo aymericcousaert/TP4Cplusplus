@@ -4,7 +4,7 @@ CPPFLAGS=-g -Wall -ansi -pedantic -std=c++11
 INT= Ligne.h Classement.h Graphe.h
 REAL=$(INT:.h=.cpp)
 BINAIRE=$(INT:.h=.o)
-EXE=run
+EXE=analog
 
 $(EXE): $(BINAIRE) main.o
 	$(ECHO) "Editions des liens, création de <$<>"

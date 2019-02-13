@@ -1,0 +1,23 @@
+man analog "2019" "1.0" "analog man page"
+NAME
+	analog - Analyse de logs apache
+
+SYNOPSIS
+	$ ./analog [-g graphe.dot] [-e] [-t heure] journal.log
+
+DESCRIPTION
+	analog est un outil qui permet d'analyser un journal de requêtes web (ici journal.log). Il fournit par défaut les 10 documents les plus consultées du journal de logs, triés par ordre décroissant de popularité, et pour différentes options de selection. Il est en outre possible de générer un fichier qui pourra produire le graphe des requêtes du journal de logs.
+
+	[Par défaut] ./analog journal.log fournit les 10 documents les plus consultés de journal.log.
+
+OPTIONS
+
+	[-g graphe.dot] Cette option permet de construire le fichier fichier.dot au format GraphViz qui contiendra la représentation du graphe des requêtes du journal de logs. On obtient le graphe par la commande dot -Tpng -o graphe.png graphe.dot.
+
+	[-e] Cette option permet d'exclure tous les documents qui ont une extension de type image, css ou javascript.
+
+	[-t heure] Cette option permet de ne prendre en compte que les hits qui sont dans le créneau horaire correspondant à l'intervalle [heure, heure + 1[.
+
+AUTHOR
+	Aymeric Cousaert (aymeric.cousaert@insa-lyon.fr)
+	Mael Risbourg (mael.risbourg@insa-lyon.fr)

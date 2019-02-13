@@ -78,9 +78,9 @@ void Ligne::afficher()
 
 bool Ligne::ExtensionEstImageouJs()
 {
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 9; i++)
     {
-        if (extension.find(EXTENSIONS[i]) != string::npos) // contains(extension,EXTENSIONS[i])
+        if (extension.find(EXTENSIONS[i]) != string::npos) // contains(extension, EXTENSIONS[i])
         {
             return true;
         }
