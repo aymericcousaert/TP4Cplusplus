@@ -76,6 +76,11 @@ int main(int argc, char* argv[])
                 return 0;
             }
             fichierDot = argv[i + 1];
+            if (getExtension(fichierDot) != ".dot")
+            {
+                cerr << "[Erreur 8] Le nom du fichier associé à l'option g n'a pas été spécifié ou n'a pas la bonne extension." << endl;
+                return 0;
+            }
             i++;
         }
         else if (strcmp(argv[i],"-e") == 0)
