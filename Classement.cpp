@@ -86,6 +86,7 @@ Classement::Classement()
     int i = 0;
     for (map<string, informations>::iterator it = mapCibles.begin(); it != mapCibles.end(); ++it)
     {
+        cout<<it->first<<endl;
         if (i < 9)
         {
                 topNonTrie[i] = it->first;
@@ -95,15 +96,17 @@ Classement::Classement()
                 topNonTrie[i] = it->first;
             // On calcule le min
 
-            for (int m = 1; m < 10; m++)
+            for (int m = 0; m < 10; m++)
             {
                 if (mapCibles[topNonTrie[m]].nbApparition < min)
                 {
                     min = mapCibles[topNonTrie[m]].nbApparition;
                     indMin = m;
+
                 }
             }
         }
+
         else
         {
             // On remplace le min s'il y a besoin
@@ -125,6 +128,8 @@ Classement::Classement()
                 }
             }
         }
+        cout<<min<<endl;
+        cout<<indMin<<endl;
         i++;
     }
     // Avant de trier on regarde la taille du tableau au cas où il y est en réalité moins de 10 éléments
