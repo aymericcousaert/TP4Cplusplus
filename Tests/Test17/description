@@ -1,0 +1,2 @@
+Test si un meme option est donnée deux fois : 
+Deux fois -e on ne doit pas voir de probleme et faire comme si elle avait été donnée une fois

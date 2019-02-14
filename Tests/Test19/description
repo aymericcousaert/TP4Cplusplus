@@ -1,0 +1,3 @@
+Test si un meme option est donnée deux fois : 
+Deux fois -t on ne prend compte que la seconde option et donc la seconde heure fournise.
+Les premières heures sont écrasées par la dernière.

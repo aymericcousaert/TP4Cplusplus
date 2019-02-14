@@ -1,0 +1,3 @@
+Test si le fichier texte n'a pas l'extention .txt ou .log :
+
+On doit avoir une erreur disant que le fichier texte ne peut être ouvert
