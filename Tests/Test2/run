@@ -1,1 +1,1 @@
-cat 
+~/Bureau/Analog-master/analog -g a.dot ~/Bureau/Analog-master/Tests/Test2/fichier.txt
