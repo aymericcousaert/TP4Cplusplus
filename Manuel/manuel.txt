@@ -1,23 +1,47 @@
-man analog "2019" "1.0" "analog man page"
-NAME
-	analog - Analyse de logs apache
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12200\viewh13600\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-SYNOPSIS
-	$ ./analog [-g graphe.dot] [-e] [-t heure] journal.log
-
-DESCRIPTION
-	analog est un outil qui permet d'analyser un journal de requêtes web (ici journal.log). Il fournit par défaut les 10 documents les plus consultées du journal de logs, triés par ordre décroissant de popularité, et pour différentes options de selection. Il est en outre possible de générer un fichier qui pourra produire le graphe des requêtes du journal de logs.
-
-	[Par défaut] ./analog journal.log fournit les 10 documents les plus consultés de journal.log.
-
-OPTIONS
-
-	[-g graphe.dot] Cette option permet de construire le fichier fichier.dot au format GraphViz qui contiendra la représentation du graphe des requêtes du journal de logs. On obtient le graphe par la commande dot -Tpng -o graphe.png graphe.dot.
-
-	[-e] Cette option permet d'exclure tous les documents qui ont une extension de type image, css ou javascript.
-
-	[-t heure] Cette option permet de ne prendre en compte que les hits qui sont dans le créneau horaire correspondant à l'intervalle [heure, heure + 1[.
-
-AUTHOR
-	Aymeric Cousaert (aymeric.cousaert@insa-lyon.fr)
-	Mael Risbourg (mael.risbourg@insa-lyon.fr)
+\f0\fs24 \cf0 On acc\'e8de au manuel d\'92utilisation d\'92analog par la commande terminal man ./manuel\
+On donne ici une copie de ce manuel.\
+\
+NAME\
+	analog - Analyse de logs apache\
+\
+SYNOPSIS\
+	$ ./analog [-g graphe.dot] [-e] [-t heure] journal.log\
+\
+DESCRIPTION\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li567\fi-568\pardirnatural\partightenfactor0
+\cf0 	analog est un outil qui permet d'analyser un journal de requ\'eates web (ici journal.log). Il fournit par d\'e9faut les 10 documents les plus consult\'e9es du journal de logs, tri\'e9s par ordre d\'e9croissant de popularit\'e9, et pour diff\'e9rentes options de s\'e9lection. Il est en outre possible de g\'e9n\'e9rer un fichier qui pourra produire le graphe des requ\'eates du journal de logs.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+	[Par d\'e9faut] \
+		./analog journal.log fournit les 10 documents les plus consult\'e9s de journal.log.\
+\
+OPTIONS\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li567\fi-568\pardirnatural\partightenfactor0
+\cf0 	[-g graphe.dot] \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1131\fi-1132\pardirnatural\partightenfactor0
+\cf0 		Construit le fichier fichier.dot au format GraphViz qui contiendra la repr\'e9sentation du graphe des requ\'eates du journal de logs. On obtient le graphe par la commande dot -Tpng -o graphe.png graphe.dot.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li567\fi-568\pardirnatural\partightenfactor0
+\cf0 	[-e] \
+\pard\tx566\tx1133\tx1134\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1134\fi-1135\pardirnatural\partightenfactor0
+\cf0 		Exclut tous les documents qui ont une extension de type image, css ou javascript.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li557\fi-558\pardirnatural\partightenfactor0
+\cf0 	[-t heure] \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li1135\fi-1136\pardirnatural\partightenfactor0
+\cf0 		Prend en compte uniquement les requ\'eates dont l\'92heure est comprise dans le cr\'e9neau horaire correspondant \'e0 l'intervalle [heure, heure + 1[.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+AUTHOR\
+	Aymeric Cousaert (aymeric.cousaert@insa-lyon.fr)\
+	Mael Risbourg (mael.risbourg@insa-lyon.fr)}

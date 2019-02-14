@@ -5,15 +5,29 @@ analog - Analyse de logs apache
 $ ./analog [-g graphe.dot] [-e] [-t heure] journal.log
 .SH DESCRIPTION
 analog est un outil qui permet d'analyser un journal de requêtes web (ici journal.log). Il fournit par défaut les 10 documents les plus consultées du journal de logs, triés par ordre décroissant de popularité, et pour différentes options de selection. Il est en outre possible de générer un fichier qui pourra produire le graphe des requêtes du journal de logs.
-.TP 
-[Par défaut] ./analog journal.log fournit les 10 documents les plus consultés de journal.log.
+\n
+Par défaut
+\n
+$ ./analog journal.log fournit les 10 documents les plus consultés de journal.log.
 .SH OPTIONS
-.TP
-[-g graphe.dot] Cette option permet de construire le fichier fichier.dot au format GraphViz qui contiendra la représentation du graphe des requêtes du journal de logs. On obtient le graphe par la commande dot -Tpng -o graphe.png graphe.dot.
-.TP
-[-e] Cette option permet d'exclure tous les documents qui ont une extension de type image, css ou javascript.
-.TP
-[-t heure] Cette option permet de ne prendre en compte que les hits qui sont dans le créneau horaire correspondant à l'intervalle [heure, heure + 1[.
+
+
+\-g graphe.dot
+\n
+Construit le fichier fichier.dot au format GraphViz qui contiendra la représentation du graphe des requêtes du journal de logs. On obtient le graphe par la commande dot -Tpng -o graphe.png graphe.dot.
+
+
+\-e 
+\n
+Exclut tous les documents qui ont une extension de type image, css ou javascript.
+
+
+\-t heure
+\n
+Prend en compte uniquement les requêtes dont l’heure est comprise dans le créneau horaire correspondant à l'intervalle [heure, heure + 1[.
+
+
 .SH AUTHOR
 Aymeric Cousaert (aymeric.cousaert@insa-lyon.fr)
+\n
 Mael Risbourg (mael.risbourg@insa-lyon.fr)
