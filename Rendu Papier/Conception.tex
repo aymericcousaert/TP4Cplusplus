@@ -20,95 +20,95 @@
 \tableofcontents
 \vspace{3cm}
 
-\begin{section}{SpÃ©cifications de l'application}
+\begin{section}{Spécifications de l'application}
 L'outil analog est un programme qui permet d'analyser un journal de logs apache.
 
-Afin de rÃ©aliser notre projet, nous avons du rÃ©flÃ©chir aux diffÃ©rents cas d'exÃ©cution nous pouvions rencontrer. Nous avons donc spÃ©cifiÃ© ces cas que nous pouvons classer en trois catÃ©gories.
+Afin de réaliser notre projet, nous avons du réfléchir aux différents cas d'exécution nous pouvions rencontrer. Nous avons donc spécifié ces cas que nous pouvons classer en trois catégories.
  \newline
  
-PremiÃ¨rement, il y a les cas normaux, ceux pour lesquels le programme ne produit pas d'erreurs. Avec un bon manuel d'utilisation, ce sont ceux qui doivent arriver le plus frÃ©quemment. Ici, nous considÃ©rons que la syntaxe des commandes est toujours correctement respectÃ©e. Par dÃ©faut, seul le nom du journal de logs (extension .log ou .txt) est donnÃ© en paramÃ¨tre et notre programme affiche les 10 sites les plus consultÃ©s. Pour les autres cas Ã©numÃ©rÃ©s ensuite, on considÃ¨re que le journal de logs est le dernier paramÃ¨tre fourni. 
-PremiÃ¨re possibilitÃ©, une option est rajoutÃ©e en paramÃ¨tre. Notre programme affichera toujours le classement des dix sites les plus visitÃ©s ; mais 
+Premièrement, il y a les cas normaux, ceux pour lesquels le programme ne produit pas d'erreurs. Avec un bon manuel d'utilisation, ce sont ceux qui doivent arriver le plus fréquemment. Ici, nous considérons que la syntaxe des commandes est toujours correctement respectée. Par défaut, seul le nom du journal de logs (extension .log ou .txt) est donné en paramètre et notre programme affiche les 10 sites les plus consultés. Pour les autres cas énumérés ensuite, on considère que le journal de logs est le dernier paramètre fourni. 
+Première possibilité, une option est rajoutée en paramètre. Notre programme affichera toujours le classement des dix sites les plus visités ; mais 
 \begin{itemize}
-\item parmi les documents qui ne sont pas un format image, css ou javascript si l'option -e est indiquÃ©e ;
-\item parmi ceux qui ont Ã©tÃ© consultÃ©s dans l'intervalle de temps [heure;  heure  + 1[ si l'option -t heure est indiquÃ©e ;
-\item un fichier .dot au format GraphViz si l'option -g est indiquÃ©e.
+\item parmi les documents qui ne sont pas un format image, css ou javascript si l'option -e est indiquée ;
+\item parmi ceux qui ont été consultés dans l'intervalle de temps [heure;  heure  + 1[ si l'option -t heure est indiquée ;
+\item un fichier .dot au format GraphViz si l'option -g est indiquée.
 \end{itemize} 
-Seconde possibilitÃ©, plusieurs options sont indiquÃ©es et notre programme est capable de les traiter toutes correctement.
+Seconde possibilité, plusieurs options sont indiquées et notre programme est capable de les traiter toutes correctement.
  \newline
  
-Ensuite, il y a les cas limites qui vont en rÃ©alitÃ© dÃ©pendre des donnÃ©es reÃ§ues dans le fichier texte. Nous avons relevÃ© 3 cas limites. Le premier apparait si l'execution avec les options ne fournit aucun rÃ©sultat, cela est alors indiquÃ© Ã  l'utilisateur et il n'y a pas de classement affichÃ©. Si l'exÃ©cution n'a pas donnÃ© suffisamment de rÃ©sultats pour afficher les 10 sites les plus consultÃ©s, l'utilisateur est informÃ© et le classement affichÃ© est de cardinal infÃ©rieur Ã  10. Le second cas limite concerne la possible prÃ©sence d'ex \ae quo. Ainsi, si deux sites ont le mÃªme nombre de vues, nous choisissons de leur donner deux classement diffÃ©rents mais comme notre classement affichera aussi le nombre de visites, l'utilisateur sera capable de voir que les deux sites sont ex \ae quo et il n'y aura donc pas d'ambiguÃ¯tÃ©. De plus, si l'Ã©galitÃ© concerne le 10Ã¨me et le 11Ã¨me site, notre programme affichera un seul de ces sites afin de garder un top 10 et ne pas afficher trop de sites si il y a de nombreux ex \ae quo. Le troisiÃ¨me et dernier cas limite concerne la saisie multiple d'une mÃªme option. Nous avons choisi de faire en sorte que notre programme ne prenne en compte que la derniÃ¨re option d'une mÃªme sÃ©rie. Ainsi, si plusieurs heures sont indiquÃ©es avec plusieurs options nous ne prendront que la derniÃ¨re. Nous avons fait ce choix car le cahier des charges ne l'interdit pas et c'est la solution qui semblait la plus facile Ã  traiter.
+Ensuite, il y a les cas limites qui vont en réalité dépendre des données reçues dans le fichier texte. Nous avons relevé 3 cas limites. Le premier apparait si l'execution avec les options ne fournit aucun résultat, cela est alors indiqué à l'utilisateur et il n'y a pas de classement affiché. Si l'exécution n'a pas donné suffisamment de résultats pour afficher les 10 sites les plus consultés, l'utilisateur est informé et le classement affiché est de cardinal inférieur à 10. Le second cas limite concerne la possible présence d'ex \ae quo. Ainsi, si deux sites ont le même nombre de vues, nous choisissons de leur donner deux classement différents mais comme notre classement affichera aussi le nombre de visites, l'utilisateur sera capable de voir que les deux sites sont ex \ae quo et il n'y aura donc pas d'ambiguïté. De plus, si l'égalité concerne le 10ème et le 11ème site, notre programme affichera un seul de ces sites afin de garder un top 10 et ne pas afficher trop de sites si il y a de nombreux ex \ae quo. Le troisième et dernier cas limite concerne la saisie multiple d'une même option. Nous avons choisi de faire en sorte que notre programme ne prenne en compte que la dernière option d'une même série. Ainsi, si plusieurs heures sont indiquées avec plusieurs options nous ne prendront que la dernière. Nous avons fait ce choix car le cahier des charges ne l'interdit pas et c'est la solution qui semblait la plus facile à traiter.
  \newline
  
-Enfin, il nous reste encore la plus grosse catÃ©gorie qui est celle des cas d'erreurs. Le programme doit Ãªtre capable d'intercepter les erreurs et d'informer l'utilisateur par un message adaptÃ© en consÃ©quence.
-La premiÃ¨re erreur notable que l'on peut trouver est celle oÃ¹ le nom du programme est mal orthographiÃ© dans le terminal mais ici nous ne pouvons rien faire car le programme ne s'exÃ©cutera pas. Nous allons donc considÃ©rer dans les prochaines erreurs que le nom du programme est correctement Ã©crit. D'autres erreurs peuvent apparaÃ®tre si le journal de logs n'a pas la bonne structure (un retour chariot dans un fichier vide par exemple donne une erreur), mais nous supposons ici que ce n'est pas le cas.
+Enfin, il nous reste encore la plus grosse catégorie qui est celle des cas d'erreurs. Le programme doit être capable d'intercepter les erreurs et d'informer l'utilisateur par un message adapté en conséquence.
+La première erreur notable que l'on peut trouver est celle où le nom du programme est mal orthographié dans le terminal mais ici nous ne pouvons rien faire car le programme ne s'exécutera pas. Nous allons donc considérer dans les prochaines erreurs que le nom du programme est correctement écrit. D'autres erreurs peuvent apparaître si le journal de logs n'a pas la bonne structure (un retour chariot dans un fichier vide par exemple donne une erreur), mais nous supposons ici que ce n'est pas le cas.
 
-Il peut y avoir un problÃ¨me sur le fichier texte fourni. Celui-ci peut soit Ãªtre mal orthographiÃ© et donc introuvable, soit de mauvaise extension et donc inutilisable, soit tout simplement pas renseignÃ©. 
+Il peut y avoir un problème sur le fichier texte fourni. Celui-ci peut soit être mal orthographié et donc introuvable, soit de mauvaise extension et donc inutilisable, soit tout simplement pas renseigné. 
 
-Ensuite il peut y avoir des erreurs sur l'option indiquÃ©e si elle est inexistante, si il manque le tiret devant ou encore si deux options sont accolÃ©es sans espace. Dans ce dernier cas, l'option est considÃ©rÃ©e inexistante. 
+Ensuite il peut y avoir des erreurs sur l'option indiquée si elle est inexistante, si il manque le tiret devant ou encore si deux options sont accolées sans espace. Dans ce dernier cas, l'option est considérée inexistante. 
 
-Enfin, le programme produira des erreurs spÃ©cifiques si 
+Enfin, le programme produira des erreurs spécifiques si 
 \begin{itemize}
-\item l'option -g n'est pas suivie d'un fichier de destination Ã  la bonne extension (.dot) ou si celui ci n'est pas renseignÃ©.
-\item l'option -t est suivie d'une heure n'est pas un entier compris entre 0 et 23 ou si celle-ci n'est pas indiquÃ©e.
+\item l'option -g n'est pas suivie d'un fichier de destination à la bonne extension (.dot) ou si celui ci n'est pas renseigné.
+\item l'option -t est suivie d'une heure n'est pas un entier compris entre 0 et 23 ou si celle-ci n'est pas indiquée.
 \newline
 \end{itemize} 
 
 
 
-Il y a donc de nombreuses spÃ©cifications Ã  prendre en compte dÃ¨s le dÃ©but du projet. Nous avons aussi trouvÃ© certaines d'entre elles durant la partie de dÃ©veloppement. Pour cela, il est nÃ©cessaire de prÃ©parer un jeu de test couvrant l'intÃ©gralitÃ© de ces spÃ©cifications afin de nous assurer du bon fonctionnement du programme.
+Il y a donc de nombreuses spécifications à prendre en compte dès le début du projet. Nous avons aussi trouvé certaines d'entre elles durant la partie de développement. Pour cela, il est nécessaire de préparer un jeu de test couvrant l'intégralité de ces spécifications afin de nous assurer du bon fonctionnement du programme.
 
-En rÃ©alitÃ©, il y a parfois des situations pouvant troubler l'exÃ©cution du programme ou provoquant une erreur qui ne correspond pas vÃ©ritablement Ã  la vraie erreur. C'est pour cela qu'il est nÃ©cessaire de prendre le temps de dÃ©finir au mieux les spÃ©cifications en amont.
+En réalité, il y a parfois des situations pouvant troubler l'exécution du programme ou provoquant une erreur qui ne correspond pas véritablement à la vraie erreur. C'est pour cela qu'il est nécessaire de prendre le temps de définir au mieux les spécifications en amont.
 
 \renewcommand{\arraystretch}{1.4} 
 \begin{figure}[h]
 \begin{center}
 \begin{tabular}{ | p{11cm} | p{4cm} |}
 \hline
-\bf SpÃ©cifications & \bf Test correspondant \\
+\bf Spécifications & \bf Test correspondant \\
 
 \hline
-Aucune option indiquÃ©e & 1 \\
+Aucune option indiquée & 1 \\
 \hline
-Option -e indiquÃ©e & 7 \\
+Option -e indiquée & 7 \\
 \hline
-Option -t indiquÃ©e & 8 \\
+Option -t indiquée & 8 \\
 \hline
-Option -g indiquÃ©e & 2-13-14-15-16 \\
+Option -g indiquée & 2-13-14-15-16 \\
 \hline
-Plusieurs options indiquÃ©es & 10-11-12 \\
+Plusieurs options indiquées & 10-11-12 \\
 \hline
-Pas de rÃ©sultats correspondant aux critÃ¨res & 6-9 \\
+Pas de résultats correspondant aux critères & 6-9 \\
 \hline
-Moins de 10 rÃ©sultats diffÃ©rents & 5\\
+Moins de 10 résultats différents & 5\\
 \hline
-PrÃ©sence d'ex \ae quo & 3-4 \\
+Présence d'ex \ae quo & 3-4 \\
 \hline
-Plusieurs fois la mÃªme option saisie & 17-18-19 \\
+Plusieurs fois la même option saisie & 17-18-19 \\
 \hline
 Erreur sur le fichier test & 20-21-22 \\
 \hline
-Erreur sur les options indiquÃ©es & 27-28 \\
+Erreur sur les options indiquées & 27-28 \\
 \hline
-Erreur sur le fichier liÃ© Ã  l'option -g & 23-24 \\
+Erreur sur le fichier lié à l'option -g & 23-24 \\
 \hline
-Erreur sur l'heure fournie Ã  l'option -t & 25-26 \\
+Erreur sur l'heure fournie à l'option -t & 25-26 \\
 \hline
-Programme fonctionne sur un trÃ¨s grand jeu de donnÃ©es & 29 \\
+Programme fonctionne sur un très grand jeu de données & 29 \\
 \hline
 \end{tabular}
 \end{center}
-\caption{SpÃ©cifications}
-\label{SpÃ©cifications}
+\caption{Spécifications}
+\label{Spécifications}
 \end{figure}
 \end{section}
 
 \begin{section}{Architecture globale de l'application}
-L'un des principales buts de notre programme est de pouvoir Ãªtre repris pous d'autres utilisations diverses. Nous avons donc pris en compte le critÃ¨re de rÃ©utilisabilitÃ© dans notre choix des classes composant l'application.
-Nous avons utilisÃ© 3 classes : Ligne, Classement, et Graphe. 
-La classe Ligne possÃ¨de tous les attributs d'une ligne d'un journal de logs. Bien que de nombreux attributs nous soit complÃ¨tement inutiles comme par exemple l'identification du client navigateur, nous avons tout de mÃªme choisis de tout rÃ©cupÃ©rer afin que notre classe soit rÃ©utilisable pour d'autres applications ou mÃªme pour une Ã©volution de notre propre application. En effet si nous choisissions de rajouter une options permettant de filtrer par minutes en plus de la fonction -t permettant de choisir une heure, nous aurions directement accÃ¨s Ã  cet attribut dans notre classe Ligne. De plus, ce choix de nous demande pas plus de place en mÃ©moire car aprÃ¨s chaque lecture d'une ligne, nous gardons les donnÃ©es qui nous interressent et nous supprimons l'objet immÃ©diatement.
+L'un des principaux buts de notre programme est de pouvoir être repris pour d'autres utilisations. Nous avons donc pris en compte le critère de réutilisabilité dans notre choix des classes composant l'application.
+Nous avons utilisé trois classes : Ligne, Classement, et Graphe. 
+La classe Ligne possède tous les attributs d'une ligne d'un journal de logs. Bien que de nombreux attributs nous soit complètement inutiles comme par exemple l'identification du client navigateur, nous avons tout de même choisi de tout récupérer afin que notre classe soit réutilisable pour d'autres applications ou même pour une évolution de notre propre application. En effet si nous choisissions de rajouter une options permettant de filtrer par minutes en plus de la fonction -t permettant de choisir une heure, nous aurions directement accès à cet attribut dans notre classe Ligne. De plus, ce choix de nous demande pas plus de place en mémoire car après chaque lecture d'une ligne, nous gardons les données qui nous intéressent et nous supprimons l'objet immédiatement.
 
-La classe Classement possÃ¨de un seul attribut qui est un tableau des 10 cibles les plus demandÃ©es. Elle a Ã©galement une mÃ©thode afficher ainsi qu'un constructeur qui permet de construire et d'afficher le top 10. Faire une classe Ã  part nous permet aussi d'envisager une rÃ©utilisation de la classe si jamais une autre application veut effectuer un top 10. Cependant, nous avons choisis dans notre projet une structure de donnÃ©es prÃ©cises et il est nÃ©cessaire que l'application voulant rÃ©utiliser la classe ait la mÃªme strucure de donnÃ©es.
-La classe Graphe possÃ¨de Ã©galement un seul attribut qui est une association entre un site et un noeud du graphe. Cette classe permet ainsi d'Ã©crire dans un fichier de type .dot et ainsi de produire du code au format GraphViz afin de produire une image reprÃ©sentant le graphe liant les cibles et les referer. Cette classe peut elle aussi Ãªtre rÃ©utilisÃ©e afin de produite un fichier .dot et faire un graphe du mÃªme type avec n'importe quelle donnÃ©es.
+La classe Classement possède un seul attribut qui est un tableau des 10 cibles les plus demandées. Elle a également une méthode afficher() ainsi qu'un constructeur qui permet de construire et d'afficher le top 10. Faire une classe à part nous permet aussi d'envisager une réutilisation de la classe pour une autre application qui souhaiterait effectuer un top 10. Cependant, nous avons choisi dans notre projet une structure de données précise et il est nécessaire que l'application voulant réutiliser la classe ait la même structure de données.
+La classe Graphe possède également un seul attribut qui est une association entre un site et un noeud du graphe. Cette classe permet de produire du code au format GraphViz afin de produire une image représentant le graphe liant les cibles et les referers. Cette classe peut elle aussi être réutilisée afin de produire un fichier .dot et faire un graphe du même type avec d'autres données.
 On fournit un diagramme de classe figure 2.
 
 \begin{figure}
@@ -121,24 +121,24 @@ On fournit un diagramme de classe figure 2.
 \end{section}
 
 
-\begin{section}{Structures de donnÃ©es commentÃ©es et justifiÃ©es}
-Au vu de la quantitÃ© de donnÃ©es Ã  traiter, il est essentiel d'avoir la structure de donnÃ©es la plus adÃ©quate possible, qui prenne le moins de place possible en mÃ©moire pour que notre programme soit capable de s'exÃ©cuter rapidement et correctement. Pour cela il faut Ã©viter le plus possible la redondance d'informations ainsi que le stockage d'informations inutiles.
-Nous avons donc rÃ©flÃ©chi Ã  la maniÃ¨re de structurer les donnÃ©es avant de dÃ©velopper l'outil analog. Les principales donnÃ©es Ã  organiser sont celles contenues dans la classe Ligne. Nous devions rÃ©cupÃ©rer les informations qui nous Ã©taient nÃ©cessaires dans une structure de donnÃ©es adÃ©quate. Nous avons choisi d'utiliser le conteneur map de la STL.
+\begin{section}{Structures de données commentées et justifiées}
+Au vu de la quantité de données à traiter, il est essentiel d'avoir la structure de données la plus adéquate possible, qui prenne le moins de place possible en mémoire pour que notre programme soit capable de s'exécuter rapidement et correctement. Pour cela il faut éviter le plus possible la redondance d'informations ainsi que le stockage d'informations inutiles.
+Nous avons donc réfléchi à la manière de structurer les données avant de développer l'outil analog. Les principales données à organiser sont celles contenues dans la classe Ligne. Nous devions récupérer les informations qui nous étaient nécessaires dans une structure de données adéquate. Nous avons choisi d'utiliser le conteneur map de la STL.
 
 
-Dans notre programme, les informations les plus importantes d'une ligne sont les attributs cible et referer. En effet, nous cherchons par dÃ©faut le nombre d'appel Ã  un site cible. Avec l'option -g, il faut de plus connaÃ®tre le nombre d'appel d'un site cible depuis un site referer particulier. Il nous semblait donc interessant de faire un premier map avec en clÃ© le nom du site cible car celui ci est unique. Effectivement si l'on trouve dans notre fichier texte deux sites cibles identiques c'est que l'on parle du mÃªme et donc il faut prendre cela en compte au mÃªme endroit de notre map. C'est pour cela que nous avons liÃ©s Ã  chaque clÃ©s une structure nommÃ©e informations que nous avons nous-mÃªme dÃ©fini. 
+Dans notre programme, les informations les plus importantes d'une ligne sont les attributs cible et referer. En effet, nous cherchons par défaut le nombre d'appel à un site cible. Avec l'option -g, il faut de plus connaître le nombre d'appel d'un site cible depuis un site referer particulier. Il nous semblait donc interessant de faire un premier map avec en clé le nom du site cible car celui ci est unique. Effectivement si l'on trouve dans notre fichier texte deux sites cibles identiques c'est que l'on parle du même et donc il faut prendre cela en compte au même endroit de notre map. C'est pour cela que nous avons liés à chaque clés une structure nommée informations que nous avons nous-même défini. 
 
-Tout d'abord, on y retrouve le nombre de fois oÃ¹ la cible apparait dans le fichier. Cette valeur nous est indispensable pour pouvoir ensuite faire notre classement des 10 sites les plus visitÃ©s. Nous avons choisis le type int car il est suffisant pour le jeu de donnÃ©es fourni mais si nÃ©cessaire il peut toujours Ãªtre envisagÃ© de l'Ã©tendre.
-De plus, notre structure informations est aussi composÃ©e d'un conteneur map similaire Ã  celui prÃ©cÃ©demment dÃ©crit puisqu'il prend en clÃ© le nom des sites referers et en valeur le nombre de fois oÃ¹ le referer a cherchÃ© Ã  accÃ©der Ã  la cible. C'est indispensable pour exÃ©cuter notre programme avec l'option -g car il faut connaitre le nombre de fois oÃ¹ un referer particulier appel une cible particuliÃ¨re.
+Tout d'abord, on y retrouve le nombre de fois où la cible apparait dans le fichier. Cette valeur nous est indispensable pour pouvoir ensuite faire notre classement des 10 sites les plus visités. Nous avons choisis le type int car il est suffisant pour le jeu de données fourni mais si nécessaire il peut toujours être envisagé de l'étendre.
+De plus, notre structure informations est aussi composée d'un conteneur map similaire à celui précédemment décrit puisqu'il prend en clé le nom des sites referers et en valeur le nombre de fois où le referer a cherché à accéder à la cible. C'est indispensable pour exécuter notre programme avec l'option -g car il faut connaitre le nombre de fois où un referer particulier appel une cible particulière.
 
-C'est donc pour cela que nous avons choisi de faire ce conteneur map mapReferers dans la structure informations, elle-mÃªme valeur du conteneur map mapCibles car il nous est seulement utile de savoir combien de fois un referer apparait pour une cible prÃ©cise.
+C'est donc pour cela que nous avons choisi de faire ce conteneur map mapReferers dans la structure informations, elle-même valeur du conteneur map mapCibles car il nous est seulement utile de savoir combien de fois un referer apparait pour une cible précise.
 
-Le conteneur map est global Ã  l'ensemble de l'application, il obtenu dÃ¨s le dÃ©but Ã  la lecture du fichier de logs fourni en paramÃ¨tre. 
+Le conteneur map est global à l'ensemble de l'application, il obtenu dès le début à la lecture du fichier de logs fourni en paramètre. 
 
-Avec cela, nous sommes donc capable de gÃ©rer notre classement des sites les plus visitÃ©s de faÃ§on rapide car il n'y a pas de calcul Ã  faire, nous avons juste Ã  parcourir toutes les cibles de notre conteneur map et Ã  prendre la cible ayant la plus grande valeur pour la variable iterations. Nous pouvons aussi gÃ©nÃ©rer notre fichier .dot de maniÃ¨re directe sans calcul supplÃ©mentaire en parcourant pour chaque cible tous les referers associÃ©s et y rÃ©cupÃ©rer le nombre d'association entre les deux.
+Avec cela, nous sommes donc capable de gérer notre classement des sites les plus visités de façon rapide car il n'y a pas de calcul à faire, nous avons juste à parcourir toutes les cibles de notre conteneur map et à prendre la cible ayant la plus grande valeur pour la variable iterations. Nous pouvons aussi générer notre fichier .dot de manière directe sans calcul supplémentaire en parcourant pour chaque cible tous les referers associés et y récupérer le nombre d'association entre les deux.
 \newline
 
-Une autre structure a Ã©tÃ© importante pour la conception de la classe Graphe. Le problÃ¨me suivant s'est prÃ©sentÃ© : comme un site peut Ãªtre Ã  la fois une cible et un referer, il n'est pas suffisant de parcourir la map mapCibles et d'afficher toutes les clÃ©s, et pour chacune d'elles, toutes les clÃ©s du conteneur map mapReferers de la structure informations. Nous avons donc utilisÃ© un autre conteneur map qui a pour clÃ© un site (type string) et valeur associÃ©e un noeud du graphe (type string Ã©galement). Ainsi, avant d'ajouter un nouveau noeud dans le fichier au format GraphViz, nous verifions qu'il n'est pas dÃ©jÃ  prÃ©sent dans le conteneur map attribut de la classe.
+Une autre structure a été importante pour la conception de la classe Graphe. Le problème suivant s'est présenté : comme un site peut être à la fois une cible et un referer, il n'est pas suffisant de parcourir la map mapCibles et d'afficher toutes les clés, et pour chacune d'elles, toutes les clés du conteneur map mapReferers de la structure informations. Nous avons donc utilisé un autre conteneur map qui a pour clé un site (type string) et valeur associée un noeud du graphe (type string également). Ainsi, avant d'ajouter un nouveau noeud dans le fichier au format GraphViz, nous verifions qu'il n'est pas déjà présent dans le conteneur map attribut de la classe.
 
 
 
