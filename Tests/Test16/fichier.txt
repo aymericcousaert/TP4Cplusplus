@@ -1,0 +1,6 @@
+192.168.0.0 - - [08/Sep/2012:10:16:02 +0200] "GET /temps/4IF16/Cible1.html HTTP/1.1" 200 12106 "http://intranet-if.insa-lyon.fr/temps/4IF15/Ref1.html" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1"
+192.168.0.0 - - [08/Sep/2012:10:16:02 +0200] "GET /temps/4IF16/Cible1.html HTTP/1.1" 200 12106 "http://intranet-if.insa-lyon.fr/temps/4IF15/Ref1.html" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1"
+192.168.0.0 - - [08/Sep/2012:10:16:02 +0200] "GET /temps/4IF16/Cible2.html HTTP/1.1" 200 12106 "http://intranet-if.insa-lyon.fr/temps/4IF15/Ref1.html" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1"
+192.168.0.0 - - [08/Sep/2012:10:16:02 +0200] "GET /temps/4IF16/Cible1.html HTTP/1.1" 200 12106 "http://intranet-if.insa-lyon.fr/temps/4IF15/Ref2.html" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1"
+192.168.0.0 - - [08/Sep/2012:10:16:02 +0200] "GET /temps/4IF16/Cible1.html HTTP/1.1" 200 12106 "http://intranet-if.insa-lyon.fr/temps/4IF15/Ref3.html" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1"
+192.168.0.0 - - [08/Sep/2012:10:16:02 +0200] "GET /temps/4IF16/Cible3.html HTTP/1.1" 200 12106 "http://intranet-if.insa-lyon.fr/temps/4IF15/Ref3.html" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1"

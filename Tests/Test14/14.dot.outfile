@@ -1,0 +1,7 @@
+digraph {
+Node0 [label="/temps/4IF16.2.html HTTP/1.1"];
+Node1 [label="http://temps/4IF15/REF1.html"];
+Node2 [label="http://temps/4IF15/REF2.html"];
+Node1 -> Node0 [label="2"];
+Node2 -> Node0 [label="1"];
+}
