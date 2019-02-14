@@ -1,2 +1,0 @@
-Test pour vérifier la fonctionalité de l'option -t avec une heure entière entre 0 et 23 ajouté.
-Dans le fichiers texte il y aura différentes heures et le filtre devra afficher que les lignes dans l'heure voulue

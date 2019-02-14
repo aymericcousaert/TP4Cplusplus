@@ -1,2 +1,0 @@
-Test pour vérifier si il n'y a aucun résultat malgré un fichier .log rempli.
-Pour cela nous utiliserons l'options -t avec une heure non présente dans le fichier texte.

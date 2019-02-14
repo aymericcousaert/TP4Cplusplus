@@ -1,3 +1,0 @@
-Ce premier test contient 10 fois la meme première ligne puis 9 fois la meme deuxieme liste et ainsi de suite jusqu'à 1.
-Cela a pour but de vérifier l'execution de notre programme et la génération d'un top 10 sans avoir de problème d'égalité.
-Il sera lancé sans option (juste le bon fichier .log en parametre)
