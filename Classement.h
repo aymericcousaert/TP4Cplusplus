@@ -38,39 +38,32 @@ class Classement
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode(liste des paramètres);
+    void afficher() const;
     // Mode d'emploi :
-    //
+    // Affiche le classement
     // Contrat :
-    //
-    void afficher();
+    // Aucun
     
     //------------------------------------------------- Surcharge d'opérateurs
-    Classement & operator=(const Classement & unClassement);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
     
     //-------------------------------------------- Constructeurs - destructeur
     Classement(const Classement & unClassement);
     // Mode d'emploi (constructeur de copie) :
-    //
+    // Constructeur de copie par défaut de l'objet classement
     // Contrat :
-    //
+    // Aucun
     
     Classement();
     // Mode d'emploi :
-    //
+    // Constructeur de l'objet classement
     // Contrat :
-    //
+    // Aucun
     
     virtual ~Classement();
     // Mode d'emploi :
-    //
+    // Destructeur par défaut de l'objet classement
     // Contrat :
-    //
+    // Aucun
     
     //------------------------------------------------------------------ PRIVE
     

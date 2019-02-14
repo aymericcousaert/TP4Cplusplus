@@ -25,16 +25,9 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Graphe::Méthode(liste des paramètres)
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 ostream& operator<<(ostream & flux, Graphe & unGraphe)
-// Algorithme :
-//
 {
     flux << "digraph {" << endl;
     // Affichage des noeuds
@@ -66,12 +59,10 @@ ostream& operator<<(ostream & flux, Graphe & unGraphe)
     flux << "}" << endl;
 
     return flux;
-} //----- Fin de operator =
+} //----- Fin de operator <<
 
 //-------------------------------------------- Constructeurs - destructeur
 Graphe::Graphe(const Graphe & unGraphe)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Graphe>" << endl;
@@ -80,8 +71,6 @@ Graphe::Graphe(const Graphe & unGraphe)
 
 
 Graphe::Graphe()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Graphe>" << endl;
@@ -108,8 +97,6 @@ Graphe::Graphe()
 
 
 Graphe::~Graphe()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Graphe>" << endl;

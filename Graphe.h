@@ -29,33 +29,32 @@ class Graphe
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode(liste des paramètres);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
+   
     //------------------------------------------------- Surcharge d'opérateurs
     friend ostream & operator<<(ostream & flux, Graphe & unGraphe);
+    // Mode d'emploi :
+    // Surcharge de l'opérateur <<
+    // Contrat :
+    // Aucun
     
     //-------------------------------------------- Constructeurs - destructeur
     Graphe(const Graphe & unGraphe);
     // Mode d'emploi (constructeur de copie) :
-    //
+    // Constructeur de copie par défaut de l'objet graphe
     // Contrat :
-    //
+    // Aucun
     
     Graphe();
     // Mode d'emploi :
-    //
+    // Constructeur de l'objet graphe
     // Contrat :
-    //
+    // Aucun
     
     virtual ~Graphe();
     // Mode d'emploi :
-    //
+    // Destructeur par défaut de l'objet graphe
     // Contrat :
-    //
+    // Aucun
     
     //------------------------------------------------------------------ PRIVE
     

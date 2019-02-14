@@ -24,12 +24,8 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Ligne::Méthode(liste des paramètres)
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-string Ligne::decompose(char sep, string uneLigne)
+
+string Ligne::decompose(char const sep, string uneLigne)
 {
     int i = 0;
     char a = uneLigne[i];
@@ -42,21 +38,7 @@ string Ligne::decompose(char sep, string uneLigne)
     return retour;
 }
 
-string Ligne::getCible()
-{
-    return cible;
-}
-string Ligne::getReferer()
-{
-    return referer;
-}
-
-int Ligne::getHeure()
-{
-    return heure;
-}
-
-void Ligne::afficher()
+void Ligne::afficher() const
 {
     cout << " " << ip;
     cout << " " << logName;
@@ -76,7 +58,7 @@ void Ligne::afficher()
     cout << " " << navigateur << endl;
 }
 
-bool Ligne::ExtensionEstImageouJs()
+bool Ligne::ExtensionEstImageouJs() 
 {
     for (int i = 0; i < 9; i++)
     {
@@ -88,7 +70,21 @@ bool Ligne::ExtensionEstImageouJs()
     return false;
 }
 
-string Ligne::getExtension()
+string Ligne::getCible()
+{
+    return cible;
+}
+string Ligne::getReferer() 
+{
+    return referer;
+}
+
+int Ligne::getHeure()
+{
+    return heure;
+}
+
+string Ligne::getExtension() const
 {
     return extension;
 }
@@ -97,8 +93,6 @@ string Ligne::getExtension()
 
 //-------------------------------------------- Constructeurs - destructeur
 Ligne::Ligne(const Ligne & unLigne)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Ligne>" << endl;
@@ -107,9 +101,6 @@ Ligne::Ligne(const Ligne & unLigne)
 
 
 Ligne::Ligne(string uneLigne)
-// Algorithme :
-//
-
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Ligne>" << endl;
@@ -162,12 +153,11 @@ Ligne::Ligne(string uneLigne)
     string tmp = cible;
     string poubelle = decompose('.',tmp);
     tmp = tmp.replace(0, poubelle.size(), "");
+    extension = decompose(' ',tmp);
 } //----- Fin de Ligne
 
 
 Ligne::~Ligne()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Ligne>" << endl;

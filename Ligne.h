@@ -22,8 +22,8 @@ const string EXTENSIONS[9] {".jpg", ".png", ".gif", ".jpeg", ".bmp", ".tif", ".i
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Ligne>
-//
-//
+// Une ligne représente une requête du journal de logs, ses attributs sont
+// les diférents éléments qui la composent
 //------------------------------------------------------------------------
 
 class Ligne
@@ -32,51 +32,68 @@ class Ligne
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    // type Méthode(liste des paramètres);
+    static string decompose(char const sep, string uneLigne);
     // Mode d'emploi :
-    //
+    // Retourne le sous string de uneLigne qui va du début jusqu'à la première apparition de sep
     // Contrat :
-    //
-    static string decompose(char sep, string uneLigne);
+    // Aucun
     
-    void afficher();
+    void afficher() const;
+    // Mode d'emploi :
+    // Affiche les attributs d'une ligne
+    // Contrat :
+    // Aucun
     
     string getCible();
+    // Mode d'emploi :
+    // Retourne la Cible
+    // Contrat :
+    // Aucun
     
     string getReferer();
+    // Mode d'emploi :
+    // Retourne le Referer
+    // Contrat :
+    // Aucun
     
     int getHeure();
+    // Mode d'emploi :
+    // Retourne l'Heure
+    // Contrat :
+    // Aucun
     
     bool ExtensionEstImageouJs();
+    // Mode d'emploi :
+    // Retourne Vrai si la cible de la requête a une extension image ou js, Faux sinon
+    // Contrat :
+    // Aucun
     
-    string getExtension();
+    string getExtension() const;
+    // Mode d'emploi :
+    // Retourne L'extension
+    // Contrat :
+    // Aucun
     
     //------------------------------------------------- Surcharge d'opérateurs
-    Ligne & operator=(const Ligne & unLigne);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    
+
     //-------------------------------------------- Constructeurs - destructeur
     Ligne(const Ligne & unLigne);
     // Mode d'emploi (constructeur de copie) :
-    //
+    // Constructeur de copie par défaut de l'objet Ligne
     // Contrat :
-    //
+    // Aucun
     
     Ligne(string uneLigne);
     // Mode d'emploi :
-    //
+    // Constructeur de l'objet Ligne
     // Contrat :
-    //
+    // Aucun
     
     virtual ~Ligne();
     // Mode d'emploi :
-    //
+    // Destructeur par défaut de l'objet ligne
     // Contrat :
-    //
+    // Aucun
     
     //------------------------------------------------------------------ PRIVE
     

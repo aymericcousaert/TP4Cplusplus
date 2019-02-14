@@ -24,13 +24,8 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Classement::Méthode(liste des paramètres)
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
-void Classement::afficher()
+void Classement::afficher() const
 {
      if (mapCibles[top[0]].nbApparition != 0)
      {
@@ -52,20 +47,12 @@ void Classement::afficher()
      {
          cout << "Impossible de fournir un Top 10 car aucun résultat ne correspond aux critères." << endl;
      }
-}
-
-
-
-
+} //----- Fin de la méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-
-
 //-------------------------------------------- Constructeurs - destructeur
 Classement::Classement(const Classement & unClassement)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Classement>" << endl;
@@ -74,8 +61,6 @@ Classement::Classement(const Classement & unClassement)
 
 
 Classement::Classement()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Classement>" << endl;
@@ -158,8 +143,6 @@ Classement::Classement()
 
 
 Classement::~Classement()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Classement>" << endl;
