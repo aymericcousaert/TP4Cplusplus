@@ -153,11 +153,9 @@ Ligne::Ligne(string uneLigne)
     string tmp = cible;
     string poubelle = decompose('.',tmp);
     tmp = tmp.replace(0, poubelle.size(), "");
-<<<<<<< HEAD
+
     extension = decompose(' ',tmp);
-=======
-    extension = tmp;
->>>>>>> 2d765784c3edb0b2a84e3b6ccc20a286488d9dff
+
 } //----- Fin de Ligne
 
 
