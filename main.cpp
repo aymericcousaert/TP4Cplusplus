@@ -23,8 +23,8 @@ informations remplissage(Ligne& uneLigne)
 
 string getExtension(string unString)
 {
-    int i = 0;
-    char a = unString[0];
+    int i = 1;
+    char a = unString[i];
     while (a != '\0' || a != '.')
     {
         if (a == '.')
@@ -123,13 +123,21 @@ int main(int argc, char* argv[])
     if (fichierLog == argv[0])
     {
         cerr << "[Erreur 6] Le nom du fichier journal n'a pas été spécifié." << endl;
+        return 0;
     }
     ifstream fichier(fichierLog, ios::in);
+    if (getExtension(fichierLog) != ".log" && getExtension(fichierLog) != ".txt")
+    {
+        cerr << "[Erreur 9] Le nom du fichier journal n'a pas la bonne extension." << endl;
+        return 0;
+    }
     if (fichier)
     {
         while (getline(fichier, ligneFichier))
         {
+            
             Ligne ligne = Ligne(ligneFichier);
+            ligne.afficher();
             if (!optionE && !optionT)
             {
                 inserer(ligne);
@@ -175,7 +183,7 @@ int main(int argc, char* argv[])
         }
         else
         {
-             cerr << "[Erreur 2] Le fichier dot fourni n'a pas pu être ouvert." << endl;
+            cerr << "[Erreur 2] Le fichier dot fourni n'a pas pu être ouvert." << endl;
             return 0;
         }
     }
