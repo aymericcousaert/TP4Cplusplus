@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.17)  14 FEB 2019 20:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.17)  14 FEB 2019 20:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -309,17 +309,22 @@ File: diag.png Graphic file (type png)
  <use diag.png>
 Package pdftex.def Info: diag.png used on input line 116.
 (pdftex.def)             Requested size: 454.70226pt x 472.16765pt.
- [3] [4 <./diag.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+ [3] [4 <./diag.png>] <Diag2.png, id=24, 457.71pt x 246.9225pt>
+File: Diag2.png Graphic file (type png)
+ <use Diag2.png>
+Package pdftex.def Info: Diag2.png used on input line 130.
+(pdftex.def)             Requested size: 366.1685pt x 197.53824pt.
+ [5 <./Diag2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
-[5] (./Conception.aux) ) 
+[6] (./Conception.aux) ) 
 Here is how much of TeX's memory you used:
- 4671 strings out of 493014
- 65815 string characters out of 6133350
- 146360 words of memory out of 5000000
- 8165 multiletter control sequences out of 15000+600000
+ 4677 strings out of 493014
+ 65911 string characters out of 6133350
+ 146368 words of memory out of 5000000
+ 8170 multiletter control sequences out of 15000+600000
  12595 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,9n,32p,1482b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -331,10 +336,10 @@ er/sfcc1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super
 /sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/s
 frm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfr
 m1728.pfb>
-Output written on Conception.pdf (5 pages, 164786 bytes).
+Output written on Conception.pdf (6 pages, 192293 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 53 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
