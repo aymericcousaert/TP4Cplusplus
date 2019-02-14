@@ -1,0 +1,3 @@
+Test si l'heure associé a l'option -t n'est pas comprise netre 0 et 23
+
+On doit avoir une erreur disant que l'heure est incorrecte

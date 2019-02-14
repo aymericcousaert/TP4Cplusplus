@@ -1,0 +1,3 @@
+Test si l'heure associé a l'option -t n'est pas spécifiée
+
+On doit avoir une erreur disant qu'il manque l'heure

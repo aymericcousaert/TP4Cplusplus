@@ -1,0 +1,3 @@
+Test si le fichier .dot n'est pas spécifié
+
+On doit avoir une erreur disant que le fichier dot ne peut pas etre ouvert

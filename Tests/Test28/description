@@ -1,0 +1,3 @@
+Test si deux options sont liés sans espace.
+Le programme doit detecter cela comme une seule option
+Le programme doit donc dire à l'utilisateur que la fonction n'existe pas
