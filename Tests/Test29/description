@@ -1,0 +1,9 @@
+Test avec un grand jeu de données.
+
+Note programme doit être capable de fournir un résultat rapidement.
+
+Nous ne mettons pas de fichier std.out ici car nous ne pouvons pas vérifier le résultat sortie.
+
+Le but de ce text est de vérifier que le programme est capable de s'executer sans erreurs malgré la masse de données
+
+(permet aussi de vérifier l'execution d'un fichier .log)
