@@ -1,2 +1,4 @@
-Test pour vérifier la fonctionalité de l'option -e.
-Nous aurons une cible avec une extension d'image dans notre fichier txt et elle ne devra pas s'afficher dans le classement.
+Test pour voir si le programme fonctionne meme si il n'y a pas 10 résultats à afficher.
+
+Nous faisons ce test dès maintenant pour pouvoir ensuite simplifier les tests suivants
+
