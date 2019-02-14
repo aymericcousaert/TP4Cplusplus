@@ -43,7 +43,7 @@ void Classement::afficher()
              }
              else
              {
-                 cout << "Il n'y a pas de documents supplémentaires pour cette liste." <<endl;
+                 cout << "Il n'y a pas de sites supplémentaires pour ce classement." <<endl;
                  break;
              }
          }
