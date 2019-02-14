@@ -1,1 +1,1 @@
-cat fichier.txt >sortie.txt
+~/Bureau/Analog-master/analog ~/Bureau/Analog-master/Tests/Test1/fichier.txt
