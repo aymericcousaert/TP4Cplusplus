@@ -1,1 +1,1 @@
-~/Bureau/Analog-master/analog ~/Bureau/Analog-master/Tests/Test3/fichier.txt
+../../analog ./fichier.txt
