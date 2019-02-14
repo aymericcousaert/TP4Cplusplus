@@ -1,1 +1,1 @@
-./exe
+../../analog -e ./fichier.txt
