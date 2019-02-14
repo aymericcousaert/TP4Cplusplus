@@ -162,6 +162,7 @@ Ligne::Ligne(string uneLigne)
     string tmp = cible;
     string poubelle = decompose('.',tmp);
     tmp = tmp.replace(0, poubelle.size(), "");
+    extension = tmp;
 } //----- Fin de Ligne
 
 
