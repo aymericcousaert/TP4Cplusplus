@@ -1,3 +1,0 @@
-Test si un meme option est donnée deux fois : 
-Deux fois -g on doit executer le programme en ne prenant en compte quie la deuxieme option g soit avec le deuxieme nom de fichier
-Les premiers noms de fichier sont ecrasés par le dernier
