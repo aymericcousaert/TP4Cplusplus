@@ -126,18 +126,12 @@ int main(int argc, char* argv[])
         return 0;
     }
     ifstream fichier(fichierLog, ios::in);
-    if (getExtension(fichierLog) != ".log" && getExtension(fichierLog) != ".txt")
-    {
-        cerr << "[Erreur 9] Le nom du fichier journal n'a pas la bonne extension." << endl;
-        return 0;
-    }
     if (fichier)
     {
         while (getline(fichier, ligneFichier))
         {
             
             Ligne ligne = Ligne(ligneFichier);
-            ligne.afficher();
             if (!optionE && !optionT)
             {
                 inserer(ligne);
